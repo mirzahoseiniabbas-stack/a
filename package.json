@@ -1,0 +1,27 @@
+{
+  "name": "talar",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -k \"node server/index.mjs\" \"vite\"",
+    "start": "node server/index.mjs",
+    "build": "vite build",
+    "test": "node --test server/*.test.mjs",
+    "typecheck": "tsc --noEmit",
+    "snapshot": "node server/refresh-snapshot.mjs"
+  },
+  "dependencies": {
+    "@fontsource/vazirmatn": "^5.2.8",
+    "lightweight-charts": "^4.2.2",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
+    "@vitejs/plugin-react": "^4.4.1",
+    "concurrently": "^9.1.2",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.4"
+  }
+}
