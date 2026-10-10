@@ -1,8 +1,22 @@
 import { useEffect, useRef } from 'react';
-import { ColorType, CrosshairMode, createChart, type IChartApi, type ISeriesApi } from 'lightweight-charts';
+import { ColorType, CrosshairMode, createChart, type IChartApi, type ISeriesApi, type Time } from 'lightweight-charts';
 import { formatCompact, formatMoney, formatNumber, formatPercent, heatColor, tone, unitLabel } from '../format';
 import { treemap } from '../treemap';
 import type { Candle, Quote, SymbolRow, Unit } from '../types';
+
+function formatCandleTick(time: Time): string {
+  const iso =
+    typeof time === 'string'
+      ? time
+      : typeof time === 'number'
+        ? new Date(time * 1000).toISOString().slice(0, 10)
+        : `${time.year}-${String(time.month).padStart(2, '0')}-${String(time.day).padStart(2, '0')}`;
+  return new Intl.DateTimeFormat('fa-IR', {
+    month: 'short',
+    day: 'numeric',
+    timeZone: 'UTC',
+  }).format(new Date(`${iso}T12:00:00Z`));
+}
 
 interface Props {
   quote: Quote | null;
@@ -118,7 +132,11 @@ function CandleChart({ candles, note }: { candles: Candle[]; note: string | null
         horzLines: { color: 'rgba(255,255,255,0.04)' },
       },
       rightPriceScale: { borderColor: 'rgba(255,255,255,0.08)' },
-      timeScale: { borderColor: 'rgba(255,255,255,0.08)', fixRightEdge: true },
+      timeScale: {
+        borderColor: 'rgba(255,255,255,0.08)',
+        fixRightEdge: true,
+        tickMarkFormatter: (time: Time) => formatCandleTick(time),
+      },
       crosshair: { mode: CrosshairMode.Normal },
       localization: { locale: 'fa-IR' },
       handleScroll: true,

@@ -57,7 +57,7 @@ button { cursor: pointer; }
   top: 0;
   z-index: 3;
 }
-.brand { display: flex; gap: 10px; align-items: center; min-width: 220px; }
+.brand { display: flex; gap: 10px; align-items: center; min-width: 0; }
 .brand strong { display: block; font-size: 18px; letter-spacing: -0.03em; }
 .brand small, .session small, .equity small { color: var(--muted); display: block; }
 .mark {
@@ -81,7 +81,8 @@ button { cursor: pointer; }
 }
 .index-chip span, .index-chip em { display: block; font-style: normal; font-size: 12px; }
 .index-chip strong { font-size: 14px; }
-.session, .equity { text-align: left; }
+.session, .equity { text-align: left; min-width: 0; }
+.equity strong, .session time { white-space: nowrap; }
 .session { display: grid; justify-items: end; gap: 2px; }
 .pill {
   border-radius: 999px;
@@ -179,7 +180,8 @@ button { cursor: pointer; }
   gap: 8px;
   padding: 10px 12px;
 }
-.stats div { display: grid; gap: 2px; }
+.stats div { display: grid; gap: 2px; min-width: 0; }
+.stats strong { overflow-wrap: anywhere; }
 .stats span, .flow span { color: var(--muted); font-size: 11px; }
 .flow { grid-column: span 2; }
 .flow-bar {
@@ -247,13 +249,15 @@ td small { display: block; }
 
 @media (max-width: 1100px) {
   .app { height: auto; }
+  .topbar { position: static; flex-wrap: wrap; align-items: flex-start; }
+  .indices, .equity { flex-basis: 100%; }
   .workspace { grid-template-columns: 1fr; }
   .blotter { height: auto; max-height: none; }
-  .topbar { flex-wrap: wrap; }
   .indices { order: 5; flex-basis: 100%; }
   .watchlist .rows { max-height: 280px; }
   .chart { position: relative; height: 320px; }
   .chart-wrap { min-height: 320px; }
   .map { height: 420px; flex: none; }
-  .stats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .flow { grid-column: 1 / -1; }
 }
