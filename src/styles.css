@@ -251,9 +251,9 @@ td small { display: block; }
   .app { height: auto; }
   .topbar { position: static; flex-wrap: wrap; align-items: flex-start; }
   .indices, .equity { flex-basis: 100%; }
+  .indices { order: 5; }
   .workspace { grid-template-columns: 1fr; }
   .blotter { height: auto; max-height: none; }
-  .indices { order: 5; flex-basis: 100%; }
   .watchlist .rows { max-height: 280px; }
   .chart { position: relative; height: 320px; }
   .chart-wrap { min-height: 320px; }
