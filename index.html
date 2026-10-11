@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>My First Project</title>
+    <meta
+      name="description"
+      content="A small first website: one page, a margin for notes, and a local server on port 8080."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,520;9..144,680&family=Outfit:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="sheet">
+      <header class="mast">
+        <p class="kicker">001 · first site</p>
+        <a class="mark" href="#notes">Leave a note</a>
+      </header>
+
+      <main>
+        <section class="hero" aria-labelledby="title">
+          <h1 id="title">My First Project</h1>
+          <p class="lede">
+            This is the first website in this repository. It is a single page
+            of HTML and CSS, with a margin that remembers what you write.
+          </p>
+          <dl class="facts">
+            <div>
+              <dt>Address</dt>
+              <dd>127.0.0.1:8080</dd>
+            </div>
+            <div>
+              <dt>Stack</dt>
+              <dd>Static files</dd>
+            </div>
+            <div>
+              <dt>Notes kept</dt>
+              <dd id="note-count">0</dd>
+            </div>
+          </dl>
+        </section>
+
+        <section class="grid" aria-label="What this page is">
+          <article>
+            <h2>A blank page, filled</h2>
+            <p>
+              The repository started as a short README. This page is the site
+              that README promised: something you can open in a browser.
+            </p>
+          </article>
+          <article>
+            <h2>Nothing to install</h2>
+            <p>
+              Serve the folder with any static file server. The notes stay in
+              this browser, so the page itself never needs a database.
+            </p>
+          </article>
+          <article>
+            <h2>A place to start</h2>
+            <p>
+              The margin on the right is for the next sentence. Write one, and
+              it stays after you reload.
+            </p>
+          </article>
+        </section>
+
+        <section class="notes" id="notes">
+          <div class="notes-copy">
+            <h2>Margin</h2>
+            <p>
+              Type a short line. It is saved on this computer and listed below.
+            </p>
+          </div>
+          <form id="note-form">
+            <label for="note-input">A line for the margin</label>
+            <textarea
+              id="note-input"
+              name="note"
+              rows="3"
+              maxlength="180"
+              required
+              placeholder="The first thing this site should say…"
+            ></textarea>
+            <div class="form-row">
+              <button type="submit">Pin it</button>
+              <button type="button" id="clear-notes" class="ghost">
+                Clear margin
+              </button>
+            </div>
+            <p id="form-status" class="status" role="status" aria-live="polite"></p>
+          </form>
+          <ol id="note-list" class="note-list" aria-label="Saved notes"></ol>
+          <p id="empty-notes" class="empty">The margin is still empty.</p>
+        </section>
+      </main>
+
+      <footer>
+        <p>My First Project · served from this folder</p>
+      </footer>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
