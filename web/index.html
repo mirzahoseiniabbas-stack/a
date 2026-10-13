@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>هیئت — کمیتهٔ لحظه‌ای بورس</title>
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <span class="mark">هـ</span>
+      <div>
+        <h1>هیئت</h1>
+        <p>کمیتهٔ تکنیکال، بنیادی، تابلو و بازیگر</p>
+      </div>
+    </div>
+    <div class="status" id="status"></div>
+    <button type="button" id="refresh" class="refresh">بروزرسانی</button>
+  </header>
+
+  <p class="disclaimer" id="disclaimer"></p>
+  <p class="source-note" id="source-note" hidden></p>
+
+  <section class="indices" id="indices"></section>
+
+  <section class="charter">
+    <h2>خروجی میزها در تایم بازار</h2>
+    <div class="charter-grid">
+      <article>
+        <h3>تکنیکال</h3>
+        <p>RSI، مکدی، استوکاستیک، بولینگر، میانگین‌های ۹ و ۲۱ و ۲۰ و ۵۰، ADX، ATR، CCI، MFI، OBV، ویلیامز، ROC سه و پنج و هفت‌روزه، ایچیموکو.</p>
+      </article>
+      <article>
+        <h3>بنیادی</h3>
+        <p>P/E نسبت به میانهٔ گروه، EPS، P/S، P/B اگر در خوراک باشد، و شناوری. صورت مالی کامل کدال جای این میز را نمی‌گیرد.</p>
+      </article>
+      <article>
+        <h3>تابلو</h3>
+        <p>فاصله تا آستانه، حجم مبنا، سرانهٔ حقیقی به میلیون تومان، قدرت خریدار، ورود پول، و سنگین بودن صف خرید یا فروش.</p>
+      </article>
+      <article>
+        <h3>بازیگران</h3>
+        <p>خالص خرید حقوقی در ۳، ۵ و ۷ جلسه. این عدد تجمیع حقوقی‌هاست، نه نام یک شخص. جمع‌کردن در منفی و توزیع بعد از رشد جدا دیده می‌شود.</p>
+      </article>
+      <article>
+        <h3>اخبار</h3>
+        <p>تیتر کدال و پیام ناظر با واژه‌های سود، قرارداد، زیان، توقف و تعدیل. اگر خبری نرسیده باشد، میز خاموش می‌ماند و امتیاز را منحرف نمی‌کند.</p>
+      </article>
+      <article>
+        <h3>دبیر کمیته</h3>
+        <p>پیشنهاد خرید فقط وقتی در فهرست می‌آید که فروشنده در سرخط باشد و سهم در صف سنگین سقف نباشد. مثبتِ چسبیده به سقف به جای خرید فوری، در فهرست «مستعد صف» می‌رود.</p>
+      </article>
+    </div>
+  </section>
+
+  <div class="toolbar">
+    <label>جستجوی نماد <input id="query" type="search" placeholder="مثلاً آرام"></label>
+  </div>
+
+  <main id="lists"></main>
+
+  <aside id="drawer" hidden>
+    <button type="button" id="close-drawer" class="close">بستن</button>
+    <div id="drawer-body"></div>
+  </aside>
+
+  <script src="/assets/app.js"></script>
+</body>
+</html>
