@@ -1,0 +1,7 @@
+uploads/*
+!uploads/.gitkeep
+*.user
+*.suo
+*.vs
+bin/
+obj/
